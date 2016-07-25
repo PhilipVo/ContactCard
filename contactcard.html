@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Users</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>	
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+
+			// $(document).on(function() {
+
+				// Add user to right side on submit:
+				$('form').submit(function(){
+					// // var input = $(this).serialize();
+					// // var inputar = input.split("&");
+					// // var input
+					// // for(var i=0; i<3; i++)
+					// // input += $('form').children().attr('value');
+					// // 				console.log(input)
+					// var first = $("#first").val();
+					// var last = $("#last").val();
+					// var email = $("#email").val();
+					// var phone = $("#number").val();
+					// console.log(first + last + email + phone)
+					// // $('table').append('<td>');	
+					// // for(var i=0; i<3; i++)
+					// // {
+					// // 	$('table').append('<td>'+input[i]+'</td>');
+					// // }
+					// // $('table').append('</td>');	
+					// $('tbody').append('<tr>');
+					// $('tbody').append('<td>'+first+'</td>');
+					// $('tbody').append('<td>'+last+'</td>');
+					// $('tbody').append('<td>'+email+'</td>');
+					// $('tbody').append('<td>'+phone+'</td>');
+					// $('tbody').append('</tr>');		
+
+					$('#right').append(
+					'<div class="user"><h1>'+$('#first').val()+' '+$('#last').val()+'</h1>'+
+					'<p>Click for description!</p>'+
+					'<p id=description_p>'+$('#description').val()+'</p></div>'					
+					);
+					return false;				
+				})
+
+				// Show description when user is clicked:
+				$(document).on('click', '.user', function() {
+					$(this).children('p').toggle();
+					$(this).children('h1').toggle();
+				})
+				// })
+			});
+
+	</script>
+</head>
+<body>
+	<div id="left">
+		<form>
+			First name: <input id="first" type="text" name="first_name"><br>
+			Last name: <input id="last" type="text" name="last_name"><br>
+			Enter description:<br><textarea id="description" rows="5" cols="30"></textarea>
+			<br>
+			<input id="submit" type="submit" value="Add User">
+		</form>
+	</div>
+	<div id="right">
+	</div>
+</body>
+</html>
